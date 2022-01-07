@@ -1,0 +1,30 @@
+[user]
+	name = Brent J. Nordquist
+	email = brent@nordist.net
+[core]
+	autocrlf = input
+	safecrlf = true
+	editor = vim
+	excludesfile = /home/bjn/.gitignore_global
+	attributesfile = /home/bjn/.gitattributes
+[alias]
+	amend = commit --amend --no-edit
+	br = branch
+	diffs = diff -b --staged
+	lg = log --pretty=format:\"%h | %s%d\" --graph
+	llg = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	rem = remote
+	st = status
+	co = checkout
+	wc = whatchanged
+[merge]
+	tool = vimdiff
+[push]
+	default = simple
+[diff "json"]
+	textconv = "cat \"$1\" | json_pp"
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
